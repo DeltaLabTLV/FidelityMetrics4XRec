@@ -19,3 +19,9 @@ To address these issues, we introduce **refined counterfactual metrics** that:
 - **INS@Ke** – Tracks confidence restoration when important features are added back.
 - **DEL@Ke** – Assesses confidence reduction when top-explaining elements are removed.
 
+
+
+📊 Datasets
+MovieLens 1M
+Yahoo! Music
+Pinterest
