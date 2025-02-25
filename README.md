@@ -91,3 +91,8 @@ You can find these results in the metrics notebooks and their output cells.
 ### Visualizations and Extended Analysis
 We've compiled additional visualizations, graphs, and analysis in this [Google Slides document](https://docs.google.com/presentation/d/1gz8pIA8P-lRpmXvMsfHNwkxcZ7aNNFZsAiIKgqf7960/edit#slide=id.p1), which provides a more comprehensive view of our findings across all datasets and recommendation models.
 
+### Model Checkpoints
+To facilitate reproduction of our results, we provide pre-trained model checkpoints and explainer models in this [Google Drive folder](https://drive.google.com/drive/folders/15YlS9QbVXvXrnFUe1OWGCpBwHZhG9fTz?usp=drive_link). These include:
+- Recommender models (MF, VAE, NCF) for all datasets
+- Trained explainer models
+- Serialized data structures for efficient evaluation
