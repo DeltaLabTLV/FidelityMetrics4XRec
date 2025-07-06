@@ -1,0 +1,34 @@
+# Heavy artifacts
+*.pt
+*.ckpt
+*.h5
+*.pkl
+*.npy
+*.npz
+*.joblib
+*.onnx
+
+# Temporary and output files
+*.log
+*.tmp
+*.out
+*.ipynb_checkpoints/
+__pycache__/
+
+# Plot and visualization results
+*.png
+*.jpg
+*.pdf
+figures/
+plots/
+charts/
+
+# Private or sensitive files
+.env
+*.key
+*.pem
+
+# Data folder
+data/
+checkpoints/
+results/
