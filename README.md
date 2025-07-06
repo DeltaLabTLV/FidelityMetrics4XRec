@@ -71,9 +71,14 @@ Key dependencies include:
 
 ## How to Run
 
-1.  **Download Data**: Run `python scripts/download_data.py` to download the required datasets.
-2.  **Train Models**: Run `python scripts/train.py --model_name VAE --dataset_name ML1M` to train a recommender model.
-3.  **Run Full Pipeline**: Use `python scripts/run_pipeline.py` to run the full pipeline of training, evaluation, and explanation.
+To run the full pipeline, first install the required dependencies, then execute the `run_pipeline.py` script with the desired dataset and recommender model.
+
+For example, to run the pipeline with the MLP recommender on the ML1M dataset, use the following command:
+
+```bash
+pip install -r requirements.txt
+python scripts/run_pipeline.py --dataset ML1M --recommender MLP
+```
 
 ## Experiments and Results
 
