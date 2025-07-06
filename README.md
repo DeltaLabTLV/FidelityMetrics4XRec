@@ -6,18 +6,33 @@ This repository contains the implementation and extended experimental results fo
 
 ```
 .
-├── code/
-│   ├── LXR_training.ipynb            # Training code for LXR explainer
-│   ├── SHAP_MLP_clusters.ipynb       # SHAP analysis for MLP recommender
-│   ├── SHAP_NCF_clusters.ipynb       # SHAP analysis for NCF recommender
-│   ├── SHAP_VAE_clusters.ipynb       # SHAP analysis for VAE recommender
-│   ├── create_dictionaries.ipynb     # Dictionary creation for baselines
-│   ├── help_functions.ipynb          # Utility functions
-│   ├── lime.ipynb                    # LIME implementation
-│   ├── metrics_discrete.ipynb        # Our refined metrics implementation
-│   ├── metrics_continuous.ipynb      # Baseline metrics implementation
-│   ├── recommenders_architecture.ipynb # Model architectures
-│   └── recommenders_training.ipynb    # Model training procedures
+├── src/
+│   ├── config.py                 # Configuration files
+│   ├── data_processing.py        # Scripts for data processing
+│   ├── explainers.py             # Implementation of explainer models
+│   ├── lime.py                   # LIME implementation
+│   ├── metrics.py                # Implementation of our refined metrics
+│   ├── models.py                 # Architectures of recommender models
+│   ├── utils.py                  # Utility functions
+│   └── visualization.py          # Code for generating visualizations
+├── scripts/
+│   ├── create_dictionaries.py    # Dictionary creation for baselines
+│   ├── download_data.py          # Script to download datasets
+│   ├── evaluate.py               # Script to evaluate models
+│   ├── run_pipeline.py           # Main pipeline to run experiments
+│   └── train.py                  # Script to train models
+├── notebooks/
+│   ├── LXR_training.ipynb        # Training code for LXR explainer
+│   ├── SHAP_MLP_clusters.ipynb   # SHAP analysis for MLP recommender
+│   ├── SHAP_NCF_clusters.ipynb   # SHAP analysis for NCF recommender
+│   ├── SHAP_VAE_clusters.ipynb   # SHAP analysis for VAE recommender
+│   ├── lime.ipynb                # LIME implementation examples
+│   ├── metrics_discrete.ipynb    # Our refined metrics implementation examples
+│   ├── metrics_continuous.ipynb  # Baseline metrics implementation examples
+│   └── visualization.ipynb       # Notebook for visualizations
+├── data/                         # Folder for datasets
+├── checkpoints/                  # Folder for model checkpoints
+└── results/                      # Folder for experiment results
 ```
 
 ## Overview
@@ -37,7 +52,6 @@ pip install pandas
 pip install torch
 pip install optuna
 pip install matplotlib
-pip install ipynb
 pip install scipy
 pip install scikit-learn
 pip install wandb
@@ -45,7 +59,6 @@ pip install shap
 pip install seaborn
 pip install openpyxl
 pip install tqdm
-pip install import-ipynb
 ```
 
 Key dependencies include:
@@ -55,18 +68,23 @@ Key dependencies include:
 - SHAP - Model interpretability
 - Optuna - Hyperparameter optimization
 - WandB - Experiment tracking
-- import-ipynb - For importing functions between notebooks
+
+## How to Run
+
+1.  **Download Data**: Run `python scripts/download_data.py` to download the required datasets.
+2.  **Train Models**: Run `python scripts/train.py --model_name VAE --dataset_name ML1M` to train a recommender model.
+3.  **Run Full Pipeline**: Use `python scripts/run_pipeline.py` to run the full pipeline of training, evaluation, and explanation.
 
 ## Experiments and Results
 
 ### Datasets
 We evaluate our metrics on three datasets:
 - MovieLens 1M
-- Yahoo! Music 
+- Yahoo! Music
 - Pinterest
 
 ### Metrics Implementation
-Our refined metrics include:
+Our refined metrics are implemented in `src/metrics.py` and include:
 - POS@Kr,Ke: Positive Perturbations metric
 - CNDCG@Ke: Counterfactual NDCG
 - INS@Ke: Insertion metric
@@ -74,10 +92,10 @@ Our refined metrics include:
 
 ### Baseline Methods
 We compare against several baseline explanation methods:
-- LIME (lime.ipynb)
-- SHAP (SHAP_*_clusters.ipynb)
-- ACCENT 
-- LXR (our method, LXR_training.ipynb)
+- LIME (`notebooks/lime.ipynb`)
+- SHAP (`notebooks/SHAP_*_clusters.ipynb`)
+- ACCENT
+- LXR (our method, `notebooks/LXR_training.ipynb`)
 
 ### Additional Results
 Beyond the results presented in the paper, this repository includes:
@@ -86,7 +104,7 @@ Beyond the results presented in the paper, this repository includes:
 - Additional metrics not included in the paper
 - Detailed explanation examples
 
-You can find these results in the metrics notebooks and their output cells.
+You can find these results in the `notebooks` directory and their output cells.
 
 ### Visualizations and Extended Analysis
 We've compiled additional visualizations, graphs, and analysis in this [Google Slides document](https://docs.google.com/presentation/d/1gz8pIA8P-lRpmXvMsfHNwkxcZ7aNNFZsAiIKgqf7960/edit#slide=id.p1), which provides a more comprehensive view of our findings across all datasets and recommendation models.
